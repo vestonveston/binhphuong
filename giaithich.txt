@@ -1,0 +1,29 @@
+- Bài này bước đầu ta sẽ thử các trường hợp đặc biệt để cắn đã :3
++ Trường nếu n = 0 thì mình in số nào mình thích cũng được miễn là nhỏ hơn 2^60 :> (ví dụ ngày sinh nhật chẳng hạn)
++ Trường hợp n = 1 thì sẽ không có số nào thỏa mãn cả bởi vì ta thấy trường hợp duy nhất thỏa mãn n = 1 là y = 1 và x = 0 nhưng mà x, y nguyên dương thế nên không được :<.
+-> Ta sẽ thấy trong quá trình xét trường hợp n = 1 thì (x + 1) ^ 2 - x^2 sẽ luôn lớn hơn 1 khi x dương. Ơ? Vậy mình thử biểu diễn y^2 - x^2 thành (x + a)^2 - x^2 xem sao :3.
+- Ta có n = (x+a)^2 - x^2 = x^2 + 2ax + a^2 - x^2 = a^2 + 2ax.
++ Thấy được biểu thức này ta thử gặm nhấm bằng for xem sao:
+++ Để thuận tiện cho việc gặm nhấm ta biến đổi biểu thức a^2 + 2ax thành a*(a + 2x)
+++ ta for a từ 1 đến căn của n, nếu a là ước của n và thỏa mãn biểu thức trên thì ta in ra đáp án.
+-> ĐPT của thuật sẽ tốn o(căn n) --> vẫn chạy quá thời gian.
+- Chúng ta nghĩ đến đây là gần như thành công rồi :3 (gặm được kha khá).
+-> Nhưng bản chất con người là tham lam thế nên nghĩ đến đây rồi thì thường thử nghĩ tiếp để ăn full.
+- Ta có được biểu thức n = a*(a + 2x) ở bên trên, nhìn thấy số 2(một số chẵn tuyệt đẹp) nên ta thử xét tính chẵn lẻ của n :)))) :
++ Trường hợp n là lẻ: 
+++ Ta có số lẻ nhỏ nhất là 1 và 1 là ước của n.
+++ Ta có a là ước của n nên ta thử đặt a = 1.
+++ Thay a = 1 vào ta có n = 2x + 1.
+++ Âu mai gót, n = 2x + 1 chính là cách biểu diễn 1 số lẻ :>.
+-> Vậy với mọi số lẻ n ta đều có thể tìm được đáp là x = (n-1)/2 và y = x + 1.
++ Trường hợp n là chẵn:
+++ Với a*(a + 2x) là chẵn ta thấy được:
++++ Nếu a lẻ thì n là lẻ (không thỏa mãn) bởi vì a + 2x sẽ là lẻ.
++++ Nếu a chắn thì ngược lại.'
++++ Khi a chẵn thì n bắt bược phải chia hết cho 4 vì a chia hết cho 2 và a + 2x cũng chia hết cho 2.
+-> Số n chẵn thỏa mãn đề bài chia hết cho 4.
+++ Ta thấy n là số chẵn nên ta sẽ thử a = 2;
+++ Thay a = 2 vào ta có n = 2 * (2 + 2x) = 4 * (x + 1).
+-> Với x luôn dương thì ta thấy n phải > 4 mới thỏa mãn đề bài
+--> Kết hợp cái dữ kiện trên ta được x = n/4 - 1 và y = x + 2.
+- Đến đây là hết òi :>.
